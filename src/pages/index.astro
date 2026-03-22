@@ -1,0 +1,77 @@
+---
+// src/pages/index.astro
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>One Page CV</title>
+		<style>
+			@font-face {
+				font-family: 'Inter';
+				src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+			}
+			body {
+				font-family: 'Inter', sans-serif;
+			}
+		</style>
+	</head>
+	<body class="bg-slate-50 text-slate-900">
+		<main class="max-w-4xl mx-auto px-6 py-12">
+			<!-- Hero Section -->
+			<header id="hero" class="mb-12 opacity-0">
+				<h1 class="text-5xl font-bold mb-4 tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+					John Doe
+				</h1>
+				<p class="text-xl text-slate-600 max-w-2xl">
+					Senior Software Engineer & Architecture Enthusiast. Creating premium web experiences with Astro, Tailwind, and GSAP.
+				</p>
+			</header>
+
+			<!-- Experience Section (Placeholder) -->
+			<section id="experience" class="space-y-8 opacity-0">
+				<h2 class="text-2xl font-semibold border-b border-slate-200 pb-2">Experience</h2>
+				<div class="group p-6 rounded-2xl bg-white shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+					<h3 class="font-bold text-lg">Lead Frontend Developer</h3>
+					<p class="text-slate-500 text-sm mb-4">Tech Corp • 2022 — Present</p>
+					<p class="text-slate-700 leading-relaxed">
+						Led the migration of corporate dashboards to Astro, improving core web vitals by 40% and reducing build times significantly.
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<script>
+			import { gsap } from 'gsap';
+
+			// Hero Reveal Animation
+			gsap.to('#hero', {
+				opacity: 1,
+				y: 0,
+				duration: 1.2,
+				ease: 'power4.out',
+				delay: 0.2
+			});
+
+			// Staggered reveal for sections
+			gsap.from('#experience h2', {
+				opacity: 0,
+				x: -20,
+				duration: 0.8,
+				scrollTrigger: '#experience',
+				delay: 0.5
+			});
+
+			gsap.to('#experience', {
+				opacity: 1,
+				y: 0,
+				duration: 1,
+				ease: 'power3.out',
+				delay: 0.8
+			});
+		</script>
+	</body>
+</html>
