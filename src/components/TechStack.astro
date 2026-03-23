@@ -1,0 +1,29 @@
+---
+const skills = [
+  { name: 'JavaScript', category: 'Frontend' },
+  { name: 'TypeScript', category: 'Frontend' },
+  { name: 'React', category: 'Frontend' },
+  { name: 'Astro', category: 'Frontend' },
+  { name: 'Tailwind CSS', category: 'Frontend' },
+  { name: 'Node.js', category: 'Backend' },
+  { name: 'PostgreSQL', category: 'Database' },
+  { name: 'Docker', category: 'DevOps' },
+  { name: 'GSAP', category: 'Animation' },
+];
+---
+
+<section id="techstack" class="py-20 border-t border-slate-200">
+  <div class="space-y-12">
+    <div>
+      <h2 class="text-3xl font-bold text-slate-900 mb-2">Tech Stack</h2>
+      <p class="text-slate-600">Tools and technologies I use to bring ideas to life.</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      {skills.map(skill => (
+        <span class="px-5 py-2.5 rounded-2xl bg-white border border-slate-100 text-slate-700 font-medium shadow-sm hover:border-blue-200 hover:text-blue-600 transition-all cursor-default">
+          {skill.name}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

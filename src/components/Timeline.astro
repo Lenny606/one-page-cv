@@ -1,0 +1,52 @@
+---
+const experiences = [
+  {
+    role: 'Senior Software Engineer',
+    company: 'Tech Solutions Inc.',
+    period: '2021 — Present',
+    description: 'Lead developer for high-traffic web applications. Focused on performance optimization and scalable architecture.',
+  },
+  {
+    role: 'Full Stack Developer',
+    company: 'Creative Studio',
+    period: '2018 — 2021',
+    description: 'Built interactive user interfaces and robust backend services using modern technologies.',
+  },
+  {
+    role: 'Junior Web Developer',
+    company: 'Startup Hub',
+    period: '2016 — 2018',
+    description: 'Contributed to the development of various client projects, gaining deep knowledge in frontend development.',
+  },
+];
+---
+
+<section id="timeline" class="py-20 border-t border-slate-200">
+  <div class="space-y-12">
+    <div>
+      <h2 class="text-3xl font-bold text-slate-900 mb-2">Experience</h2>
+      <p class="text-slate-600">A journey through my professional life.</p>
+    </div>
+    <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+      {experiences.map((exp, index) => (
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg class="fill-current" viewBox="0 0 12 12" width="12" height="12">
+              <path d="M12 10v2H7V8.496a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V12H0V4.496a.5.5 0 0 1 .206-.4l5.507-3.923a.5.5 0 0 1 .587 0l5.507 3.923a.5.5 0 0 1 .206.4V10Z" />
+            </svg>
+          </div>
+          <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between space-x-2 mb-1">
+              <div class="font-bold text-slate-900">{exp.role}</div>
+              <time class="font-medium text-blue-600 text-sm">{exp.period}</time>
+            </div>
+            <div class="text-slate-500 font-medium mb-2">{exp.company}</div>
+            <div class="text-slate-600 leading-relaxed text-sm">
+              {exp.description}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
