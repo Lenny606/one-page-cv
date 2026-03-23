@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import DotBackground from '../components/DotBackground.astro';
 
 interface Props {
 	title: string;
@@ -37,6 +38,7 @@ const { title, description = "Professional Portfolio - One Page CV" } = Astro.pr
 		</style>
 	</head>
 	<body class="bg-slate-50 text-slate-900 selection:bg-blue-100">
+		<DotBackground />
 		<slot />
 	</body>
 </html>
