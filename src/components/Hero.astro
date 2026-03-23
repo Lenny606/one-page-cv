@@ -3,23 +3,23 @@
 
 <header id="hero" class="min-h-[80vh] flex flex-col justify-center py-20 overflow-hidden">
   <div class="space-y-6">
-    <span class="gsap-hero-badge invisible inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold tracking-wide uppercase">
+    <span class="gsap-hero-badge invisible inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase mb-4">
       Available for new opportunities
     </span>
-    <h1 class="gsap-hero-title invisible text-5xl md:text-7xl font-bold tracking-tight text-slate-900 leading-tight">
+    <h1 class="gsap-hero-title invisible text-6xl md:text-9xl font-black tracking-tighter text-slate-900 leading-[0.9] md:leading-[0.85]">
       Architecting <br />
-      <span class="text-blue-600">scalable</span> systems.
+      <span class="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-blue-400 drop-shadow-sm">scalable</span><br />
+      systems.
     </h1>
-    <p class="gsap-hero-description invisible text-xl text-slate-600 max-w-2xl leading-relaxed">
-      Senior Backend Engineer specializing in high-performance distributed systems, 
-      cloud infrastructure, and robust API design. I build the invisible foundations 
-      that power seamless digital experiences.
+    <p class="gsap-hero-description invisible text-xl md:text-2xl text-slate-600 max-w-xl leading-relaxed mt-4">
+      Senior Backend Engineer specializing in high-performance distributed systems 
+      and robust digital foundations.
     </p>
     <div class="gsap-hero-actions invisible flex flex-wrap gap-4 pt-4">
-      <a href="#contact" class="gsap-btn px-8 py-4 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
+      <a href="#contact" class="gsap-btn px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl shadow-slate-200">
         Get in touch
       </a>
-      <a href="#timeline" class="gsap-btn px-8 py-4 bg-white border border-slate-200 text-slate-600 rounded-xl font-semibold hover:bg-slate-50 transition-all">
+      <a href="#timeline" class="gsap-btn px-8 py-4 bg-white border border-slate-100 text-slate-600 rounded-2xl font-bold shadow-sm hover:border-blue-200 hover:text-blue-600 transition-all">
         View work
       </a>
     </div>
@@ -29,20 +29,16 @@
 <script>
   import { gsap } from 'gsap';
 
-  // Initialize Hero animations
   const initHeroAnimations = () => {
-    const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.2 } });
+    const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.5 } });
 
-    // Set initial states to prevent flash of unstyled content
     gsap.set(['.gsap-hero-badge', '.gsap-hero-title', '.gsap-hero-description', '.gsap-hero-actions'], { 
       visibility: 'visible' 
     });
 
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
-      // For reduced motion, just show elements with a simple fade
       tl.from(['.gsap-hero-badge', '.gsap-hero-title', '.gsap-hero-description', '.gsap-hero-actions'], {
         opacity: 0,
         duration: 0.8,
@@ -53,36 +49,38 @@
 
     tl.from('.gsap-hero-badge', {
       opacity: 0,
-      y: 20,
+      y: 30,
       duration: 1,
     })
     .from('.gsap-hero-title', {
       opacity: 0,
-      y: 30,
-      skewY: 2,
-    }, "-=0.8")
+      y: 100,
+      rotateX: -20,
+      transformOrigin: "top left",
+      stagger: 0.1,
+    }, "-=1.2")
     .from('.gsap-hero-description', {
       opacity: 0,
-      y: 20,
-    }, "-=0.8")
+      y: 30,
+    }, "-=1.2")
     .from('.gsap-hero-actions', {
       opacity: 0,
-      y: 20,
-    }, "-=0.8");
+      y: 30,
+      stagger: 0.1
+    }, "-=1.2");
 
     // Button interactions
     const buttons = document.querySelectorAll('.gsap-btn');
     buttons.forEach(btn => {
       btn.addEventListener('mouseenter', () => {
-        gsap.to(btn, { scale: 1.05, duration: 0.3, ease: "power2.out" });
+        gsap.to(btn, { scale: 1.05, y: -2, duration: 0.4, ease: "power3.out" });
       });
       btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, { scale: 1, duration: 0.3, ease: "power2.out" });
+        gsap.to(btn, { scale: 1, y: 0, duration: 0.4, ease: "power3.out" });
       });
     });
   };
 
-  // Run on page load and view transitions
   document.addEventListener('DOMContentLoaded', initHeroAnimations);
   document.addEventListener('astro:page-load', initHeroAnimations);
 </script>
