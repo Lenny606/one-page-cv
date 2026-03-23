@@ -1,17 +1,20 @@
 ---
 const skills = [
-  { name: 'Node.js', category: 'Runtime' },
-  { name: 'Go', category: 'Language' },
-  { name: 'TypeScript', category: 'Language' },
-  { name: 'PostgreSQL', category: 'Database' },
-  { name: 'Redis', category: 'Caching' },
-  { name: 'Docker', category: 'DevOps' },
-  { name: 'Kubernetes', category: 'DevOps' },
-  { name: 'Terraform', category: 'IaC' },
-  { name: 'AWS', category: 'Cloud' },
-  { name: 'GraphQL', category: 'API' },
-  { name: 'gRPC', category: 'API' },
-  { name: 'RabbitMQ', category: 'Message Broker' },
+  { name: "Node.js", category: "Runtime" },
+  { name: "Python", category: "Language" },
+  { name: "PHP", category: "Language" },
+  { name: "TypeScript", category: "Language" },
+  { name: "SQL", category: "Database" },
+  { name: "NoSQL", category: "Database" },
+  { name: "Redis", category: "Caching" },
+  { name: "Docker", category: "DevOps" },
+  { name: "Helm", category: "DevOps" },
+  { name: "Terraform", category: "IaC" },
+  { name: "AWS", category: "Cloud" },
+  { name: "GraphQL", category: "API" },
+  { name: "REST", category: "API" },
+  { name: "gRPC", category: "API" },
+  { name: "RabbitMQ", category: "Message Broker" },
 ];
 ---
 
@@ -19,14 +22,18 @@ const skills = [
   <div class="space-y-12">
     <div>
       <h2 class="text-3xl font-bold text-slate-900 mb-2">Tech Stack</h2>
-      <p class="text-slate-600">Tools and technologies I use to bring ideas to life.</p>
+      <p class="text-slate-600">
+        Tools and technologies I use to bring ideas to life.
+      </p>
     </div>
     <div class="flex flex-wrap gap-3">
-      {skills.map(skill => (
-        <span class="px-5 py-2.5 rounded-2xl bg-white border border-slate-100 text-slate-700 font-medium shadow-sm hover:border-blue-200 hover:text-blue-600 transition-all cursor-default">
-          {skill.name}
-        </span>
-      ))}
+      {
+        skills.map((skill) => (
+          <span class="px-5 py-2.5 rounded-2xl bg-white border border-slate-100 text-slate-700 font-medium shadow-sm hover:border-blue-200 hover:text-blue-600 transition-all cursor-default">
+            {skill.name}
+          </span>
+        ))
+      }
     </div>
   </div>
 </section>
