@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # project temp data
 temp/references/
+
+# testing
+playwright-report/
+test-results/
