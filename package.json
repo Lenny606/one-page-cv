@@ -14,9 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "test:e2e": "playwright test",
-    "test": "python .agent/scripts/checklist.py .",
-    "verify": "python .agent/scripts/verify_all.py ."
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
