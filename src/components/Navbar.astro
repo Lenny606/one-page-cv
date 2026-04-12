@@ -16,6 +16,8 @@ const navItems = [
     >
       TK
     </a>
+    
+    <!-- Desktop Menu -->
     <ul class="hidden md:flex gap-8">
       {
         navItems.map((item) => (
@@ -30,7 +32,9 @@ const navItems = [
         ))
       }
     </ul>
-    <button class="md:hidden text-slate-600">
+
+    <!-- Mobile Toggle -->
+    <button id="menu-toggle" class="md:hidden text-slate-600 hover:text-blue-600 transition-colors" aria-label="Open Menu">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -50,3 +54,100 @@ const navItems = [
     </button>
   </div>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div 
+  id="menu-overlay" 
+  class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[60] hidden opacity-0"
+></div>
+
+<!-- Mobile Menu Panel -->
+<aside 
+  id="mobile-menu" 
+  class="fixed top-0 right-0 bottom-0 w-[280px] bg-white z-[70] shadow-2xl translate-x-full"
+>
+  <div class="p-6 h-full flex flex-col">
+    <div class="flex justify-end mb-8">
+      <button id="menu-close" class="text-slate-600 hover:text-blue-600 transition-colors" aria-label="Close Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <nav>
+      <ul class="flex flex-col gap-6">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="mobile-link text-lg font-medium text-slate-600 hover:text-blue-600 transition-colors block"
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="mt-auto border-t border-slate-100 pt-6">
+      <p class="text-xs text-slate-400 font-medium uppercase tracking-wider mb-4">Connect</p>
+      <div class="flex gap-4">
+        <a href="https://linkedin.com/in/tomaskravcik/" class="text-slate-600 hover:text-blue-600 transition-colors">LinkedIn</a>
+        <a href="https://github.com/Lenny606" class="text-slate-600 hover:text-blue-600 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  if (menuToggle && menuClose && menuOverlay && mobileMenu) {
+    const tl = gsap.timeline({ paused: true, reversed: true });
+
+    // Setup opening animation
+    tl.to(menuOverlay, {
+      display: 'block',
+      opacity: 1,
+      duration: 0.3,
+      ease: 'power2.out'
+    }).to(mobileMenu, {
+      x: 0,
+      duration: 0.4,
+      ease: 'power3.out'
+    }, '-=0.2');
+
+    // Toggle menu
+    const toggleMenu = () => {
+      if (tl.reversed()) {
+        tl.play();
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      } else {
+        tl.reverse();
+        document.body.style.overflow = '';
+      }
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuClose.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        tl.reverse();
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
