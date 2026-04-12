@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://tomas-kravcik.cz/sitemap-index.xml
+Disallow: /

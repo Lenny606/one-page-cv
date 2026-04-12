@@ -23,7 +23,7 @@ const { title, description = "Professional Portfolio - One Page CV" } = Astro.pr
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || 'https://tomas-kravcik.cz')} />
-		<meta name="robots" content="index, follow" />
+		<meta name="robots" content="noindex, nofollow" />
 		<meta name="theme-color" content="#2563eb" />
 
 		<!-- Open Graph / Facebook -->
