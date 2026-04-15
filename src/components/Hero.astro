@@ -1,24 +1,24 @@
 ---
 const projects = [
   {
-    id: 'bank-app',
-    title: 'BankApp Next.js',
-    shortDesc: 'Modern banking interface with real-time transactions.',
-    longDesc: 'A high-performance banking application built with Next.js, featuring secure authentication, real-time transaction tracking, and a sleek, responsive dashboard.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind', 'Appwrite'],
-    challenge: 'Ensuring absolute data consistency and security across distributed state.',
-    solution: 'Implemented robust server actions and optimistic UI updates for a seamless experience.',
-    link: 'https://github.com/Lenny606/bankapp-nextjs'
+    id: 'jenko-studio',
+    title: 'Jenko Studio',
+    shortDesc: 'Digital gallery showcasing abstract art and minimal experiments.',
+    longDesc: 'A minimalist digital portfolio for artist Dominika Jenčová, focusing on emotional storytelling through abstract expressions. Designed with a clean, immersive user interface that lets the art speak for itself.',
+    tech: ['Astro', 'GSAP', 'Tailwind', 'JavaScript'],
+    challenge: 'Creating a layout that feels as fluid and abstract as the artwork it presents.',
+    solution: 'Implemented sophisticated GSAP animations and a flexible grid system to mirror the artist\'s style.',
+    link: 'https://jenkostudio.com'
   },
   {
-    id: 'inventory-system',
-    title: 'Inventory Flow',
-    shortDesc: 'Automated logistics and inventory management.',
-    longDesc: 'A comprehensive inventory management system designed for small to medium enterprises, automating stock tracking and order fulfillment.',
-    tech: ['PHP', 'Laravel', 'MySQL', 'Docker'],
-    challenge: 'Handling complex relational data and maintaining performance during peak loads.',
-    solution: 'Optimized database queries and implemented advanced caching strategies with Redis.',
-    link: 'https://github.com/Lenny606/app'
+    id: 'dbda-studio',
+    title: 'DBDA studio',
+    shortDesc: 'Modern architectural atelier project showcase.',
+    longDesc: 'A professional platform for a Prague-based architectural studio. The site presents modern architectural designs that harmonize with landscape and history, requiring a structured yet elegant presentation of large-scale projects.',
+    tech: ['Astro', 'ExpressJS', 'PostgreSQL', 'Tailwind'],
+    challenge: 'Maintaining high performance while displaying high-resolution architectural project galleries.',
+    solution: 'Developed a custom image optimization pipeline and a clean, project-focused navigation system.',
+    link: 'https://dbda.cz'
   },
   {
     id: 'animation-flow',
@@ -203,11 +203,15 @@ const projects = [
 
     let isOpen = false;
 
-    /* 
+    /**
+     * Toggles the visibility of the "View work" grid section.
+     * Uses GSAP for smooth height and opacity transitions.
+     */
     toggleBtn.addEventListener('click', () => {
       isOpen = !isOpen;
       
       if (isOpen) {
+        // Open the section
         gsap.to(section, {
           height: 'auto',
           opacity: 1,
@@ -218,9 +222,11 @@ const projects = [
             section.classList.remove('pointer-events-none');
           }
         });
+        
+        // Rotate the chevron
         gsap.to(chevron, { rotate: 180, duration: 0.4, ease: "power3.out" });
         
-        // Stagger cards in
+        // Stagger project cards in for a premium look
         gsap.from('.project-card', {
           opacity: 0,
           y: 40,
@@ -230,6 +236,7 @@ const projects = [
           clearProps: "all"
         });
       } else {
+        // Close the section
         gsap.to(section, {
           height: 0,
           opacity: 0,
@@ -240,12 +247,13 @@ const projects = [
             section.classList.add('pointer-events-none');
           }
         });
+        
+        // Reset the chevron rotation
         gsap.to(chevron, { rotate: 0, duration: 0.4, ease: "power3.inOut" });
       }
     });
-    */
 
-    // Modal Logic
+    // Modal Logic for project details
     const modal = document.getElementById('project-modal');
     const cards = document.querySelectorAll('.project-card');
     const closeBtn = document.getElementById('close-modal');
