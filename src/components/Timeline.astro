@@ -1,46 +1,46 @@
 ---
 const experiences = [
   {
-    role: "Backend Developer",
-    company: "ProCorp Solution s.r.o.",
-    period: "09/2023 — Present",
+    role: 'Backend Developer',
+    company: 'ProCorp Solution s.r.o.',
+    period: '09/2023 — Present',
     description:
-      "Developing and maintaining client-focused applications and web services across multiple domains. Primary owner of backend architecture for e-commerce, logistics, and admin systems. Working with PHP (Laravel/Slim), Python (FastAPI/Django), and Node.js.",
+      'Developing and maintaining client-focused applications and web services across multiple domains. Primary owner of backend architecture for e-commerce, logistics, and admin systems. Working with PHP (Slim API), Python (FastAPI/Django), and Node.js.',
   },
   {
-    role: "Process Designer / Front-End Developer",
-    company: "Česká spořitelna, a.s.",
-    period: "08/2022 — 09/2023",
+    role: 'Process Designer / Front-End Developer',
+    company: 'Česká spořitelna, a.s.',
+    period: '08/2022 — 09/2023',
     description:
-      "Maintained internal banking applications, implementing new features and resolving critical bugs. Specialized in TypeScript/JavaScript and FreeMarker Template Language within Bitbucket and Openshift environments.",
+      'Maintained internal banking applications, implementing new features and resolving critical bugs. Specialized in TypeScript/JavaScript and FreeMarker Template Language within Bitbucket and Openshift environments.',
   },
   {
-    role: "Fullstack Web Development",
-    company: "Coding Bootcamp Prague (Data4You z.s.)",
-    period: "05/2022 — 07/2022",
+    role: 'Fullstack Web Development',
+    company: 'Coding Bootcamp Prague (Data4You z.s.)',
+    period: '05/2022 — 07/2022',
     description:
-      "Completed an intensive full-stack development program. Focused on modern web technologies including JavaScript, React, PHP, and database design. Developed multiple end-to-end applications and refined coding best practices.",
+      'Completed an intensive full-stack development program. Focused on modern web technologies including JavaScript, React, PHP, and database design. Developed multiple end-to-end applications and refined coding best practices.',
   },
   {
-    role: "Logistics & EOC Specialist / Purchase Specialist",
-    company: "Arval CZ - BNP Paribas Group",
-    period: "09/2018 — 03/2022",
+    role: 'Logistics & EOC Specialist / Purchase Specialist',
+    company: 'Arval CZ - BNP Paribas Group',
+    period: '09/2018 — 03/2022',
     description:
-      "Managed procurement processes and logistics operations. Coordinated between department teams to streamline purchasing workflows and ensure operational efficiency.",
+      'Managed procurement processes and logistics operations. Coordinated between department teams to streamline purchasing workflows and ensure operational efficiency.',
   },
   {
-    role: "Project Manager & Trainer",
-    company: "NAR marketing s.r.o.",
-    period: "03/2016 — 06/2018",
+    role: 'Project Manager & Trainer',
+    company: 'NAR marketing s.r.o.',
+    period: '03/2016 — 06/2018',
     description:
-      "Led client support initiatives and project management. Focused on direct coaching, training programs, and delivering structured marketing solutions for diverse clients.",
+      'Led client support initiatives and project management. Focused on direct coaching, training programs, and delivering structured marketing solutions for diverse clients.',
   },
   {
-    role: "Galerist",
-    company: "Gallery U mloka",
-    period: "01/2013 — 06/2013",
+    role: 'Galerist',
+    company: 'Gallery U mloka',
+    period: '01/2013 — 06/2013',
     description:
-      "Managed gallery operations and exhibition logistics. Coordinated artist relations and public interactions within a cultural environment.",
+      'Managed gallery operations and exhibition logistics. Coordinated artist relations and public interactions within a cultural environment.',
   },
 ];
 const initialExperiences = experiences.slice(0, 3);
@@ -51,7 +51,9 @@ const hiddenExperiences = experiences.slice(3);
   <div class="space-y-12">
     <div>
       <h2 class="text-3xl font-bold text-slate-900 mb-2">Experience</h2>
-      <p class="text-slate-600">A journey through my professional life.</p>
+      <p class="text-slate-600">
+        A journey through my professional life as a developer.
+      </p>
     </div>
 
     <div
@@ -126,7 +128,7 @@ const hiddenExperiences = experiences.slice(3);
         id="toggle-experience"
         class="group flex items-center gap-2 px-6 py-3 rounded-2xl bg-white border border-slate-100 text-slate-600 font-semibold shadow-sm hover:border-blue-200 hover:text-blue-600 transition-all"
       >
-        <span id="btn-text">Show More</span>
+        <span id="btn-text">Show More Working Experience</span>
         <svg
           id="btn-icon"
           class="w-4 h-4 transition-transform duration-300"
@@ -145,56 +147,56 @@ const hiddenExperiences = experiences.slice(3);
 </section>
 
 <script>
-  import { gsap } from "gsap";
+  import { gsap } from 'gsap';
 
   const initTimelineReveal = () => {
-    const toggleBtn = document.getElementById("toggle-experience");
-    const content = document.getElementById("experience-more");
-    const btnText = document.getElementById("btn-text");
-    const btnIcon = document.getElementById("btn-icon");
+    const toggleBtn = document.getElementById('toggle-experience');
+    const content = document.getElementById('experience-more');
+    const btnText = document.getElementById('btn-text');
+    const btnIcon = document.getElementById('btn-icon');
 
     if (!toggleBtn || !content || !btnText || !btnIcon) return;
 
     let isOpen = false;
 
-    toggleBtn.addEventListener("click", () => {
+    toggleBtn.addEventListener('click', () => {
       isOpen = !isOpen;
 
       if (isOpen) {
         // Open
         gsap.to(content, {
-          height: "auto",
+          height: 'auto',
           duration: 0.8,
-          ease: "expo.out",
+          ease: 'expo.out',
           opacity: 1,
         });
 
-        btnText.textContent = "Show Less";
-        btnIcon.style.transform = "rotate(180deg)";
+        btnText.textContent = 'Show Less';
+        btnIcon.style.transform = 'rotate(180deg)';
       } else {
         // Close
         gsap.to(content, {
           height: 0,
           duration: 0.6,
-          ease: "expo.inOut",
+          ease: 'expo.inOut',
           opacity: 0,
         });
 
-        btnText.textContent = "Show More";
-        btnIcon.style.transform = "rotate(0deg)";
+        btnText.textContent = 'Show More Working Experience';
+        btnIcon.style.transform = 'rotate(0deg)';
       }
     });
 
     // Handle hover effect with GSAP
-    toggleBtn.addEventListener("mouseenter", () => {
-      gsap.to(toggleBtn, { scale: 1.02, duration: 0.3, ease: "power2.out" });
+    toggleBtn.addEventListener('mouseenter', () => {
+      gsap.to(toggleBtn, { scale: 1.02, duration: 0.3, ease: 'power2.out' });
     });
-    toggleBtn.addEventListener("mouseleave", () => {
-      gsap.to(toggleBtn, { scale: 1, duration: 0.3, ease: "power2.out" });
+    toggleBtn.addEventListener('mouseleave', () => {
+      gsap.to(toggleBtn, { scale: 1, duration: 0.3, ease: 'power2.out' });
     });
   };
 
   // Run on page load and view transitions
-  document.addEventListener("DOMContentLoaded", initTimelineReveal);
-  document.addEventListener("astro:page-load", initTimelineReveal);
+  document.addEventListener('DOMContentLoaded', initTimelineReveal);
+  document.addEventListener('astro:page-load', initTimelineReveal);
 </script>
