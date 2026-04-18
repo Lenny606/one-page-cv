@@ -1,21 +1,10 @@
 ---
 const projects = [
   {
-    id: 'jenko-studio',
-    title: 'Jenko Studio',
-    image: 'jenko-studio',
-    shortDesc: 'Digital gallery showcasing abstract art and minimal experiments.',
-    longDesc: 'A minimalist digital portfolio for artist Dominika Jenčová, focusing on emotional storytelling through abstract expressions. Designed with a clean, immersive user interface that lets the art speak for itself.',
-    tech: ['HTML', 'JavaScript', 'CSS'],
-    challenge: 'Creating a layout that feels as fluid and abstract as the artwork it presents.',
-    solution: 'Implemented sophisticated GSAP animations and a flexible grid system to mirror the artist\'s style.',
-    link: 'https://jenkostudio.com'
-  },
-  {
     id: 'dbda-studio',
     title: 'DBDA studio',
     image: 'dbda-studio',
-    shortDesc: 'Modern architectural atelier project showcase.',
+    shortDesc: 'Website of a Prague-based architectural studio.',
     longDesc: 'A professional platform for a Prague-based architectural studio. The site presents modern architectural designs that harmonize with landscape and history, requiring a structured yet elegant presentation of large-scale projects.',
     tech: ['HTML', 'JavaScript', 'CSS'],
     challenge: 'Maintaining high performance while displaying high-resolution architectural project galleries.',
@@ -23,12 +12,23 @@ const projects = [
     link: 'https://dbda.cz'
   },
   {
+    id: 'jenko-studio',
+    title: 'Jenko Studio',
+    image: 'jenko-studio',
+    shortDesc: "Website presenting an artist's portfolio.",
+    longDesc: 'A minimalist digital portfolio for artist Dominika Jenčová, focusing on emotional storytelling through abstract expressions. Designed with a clean, immersive user interface that lets the art speak for itself.',
+    tech: ['HTML', 'JavaScript', 'CSS'],
+    challenge: 'Creating a layout that feels as fluid and abstract as the artwork it presents.',
+    solution: 'Implemented sophisticated GSAP animations and a flexible grid system to mirror the artist\'s style.',
+    link: 'https://jenkostudio.com'
+  },
+  {
     id: 'animation-flow',
     title: 'Animation Flow',
     image: 'animation-flow',
     shortDesc: 'Creative coding and animation orchestration engine.',
     longDesc: 'A specialized engine for building complex, timeline-based animations using GSAP and Python, bridging the gap between design and logic.',
-    tech: ['Python', 'GSAP', 'JavaScript', 'SVG'],
+    tech: ['Python', 'GSAP', 'JavaScript', 'CSS'],
     challenge: 'Synchronizing multi-step animations across different viewports.',
     solution: 'Developed a custom state-driven animation manager for precise timing control.',
     link: 'https://github.com/Lenny606/animation-flow'
@@ -90,7 +90,7 @@ const projects = [
             
             <div class="relative z-10">
               <div class="flex flex-wrap gap-2 mb-4">
-                {project.tech.slice(0, 2).map((t) => (
+                {project.tech.slice(0, 3).map((t) => (
                   <span class="px-2 py-0.5 rounded-md bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-wider border border-slate-100">
                     {t}
                   </span>
