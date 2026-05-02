@@ -28,5 +28,21 @@
     "challenge": "Creating a layout that feels as fluid and abstract as the artwork it presents.",
     "solution": "Implemented sophisticated GSAP animations and a flexible grid system to mirror the artist's style.",
     "link": "https://jenkostudio.com"
+  },
+  {
+    "id": "art-vault",
+    "title": "Art Vault",
+    "image": "art-vault",
+    "shortDesc": "A dashboard for managing and analyzing art collections.",
+    "longDesc": "App is a React CMS designed to organize and analyze art collections. It features image matching, progress tracking, and detailed analytics by category, medium, and year, all presented through a modern dashboard.",
+    "tech": [
+      "React",
+      "TypeScript",
+      "MongoDB",
+      "Tailwind CSS"
+    ],
+    "challenge": "Centralizing the organization and management of data from fragmented sources into a single, cohesive platform with various export options.",
+    "solution": "Developed a focused React application prioritizing UX with drag-and-drop image matching and intuitive category organization. Leveraged MongoDB to handle non-uniform data structures with seamless cloud integration.",
+    "link": "https://github.com/Lenny606/jenko-react"
   }
 ]
