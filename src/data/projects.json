@@ -44,6 +44,26 @@
     ],
     "challenge": "Centralizing the organization and management of data from fragmented sources into a single, cohesive platform with various export options.",
     "solution": "Developed a focused React application prioritizing UX with drag-and-drop image matching and intuitive category organization. Leveraged MongoDB for non-uniform data structures with seamless cloud database integration.",
-    "link": "https://github.com/Lenny606/jenko-react"
+    "link": "https://github.com/Lenny606/art-cms-react/tree/main/client"
+  },
+  {
+    "id": "recipe-app",
+    "title": "Recipe App",
+    "image": "recipe-app",
+    "shortDesc": "AI-powered recipe scraper and organizer for seamless cooking.",
+    "longDesc": "A smart recipe management platform that simplifies collecting recipes from across the web. Using an automated scraper and LLM-based processing, the app transforms cluttered web pages into clean, structured recipes with organized ingredients and step-by-step instructions.",
+    "tech": [
+      "FastAPI",
+      "Python",
+      "React",
+      "TypeScript",
+      "OpenAI",
+      "MongoDB",
+      "Vercel",
+      "Render"
+    ],
+    "challenge": "Efficiently organizing and consolidating recipes from disparate websites without manual data entry.",
+    "solution": "Built a custom scraper integrated with an LLM to extract and structure unstructured web content into a consistent format. Developed a clean UI for easy browsing and management.",
+    "link": "https://github.com/Lenny606/recepies-app"
   }
 ]
