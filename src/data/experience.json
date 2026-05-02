@@ -1,0 +1,38 @@
+[
+  {
+    "role": "Backend Developer",
+    "company": "ProCorp Solution s.r.o.",
+    "period": "09/2023 — Present",
+    "description": "Developing and maintaining client-focused applications and web services across multiple domains. Primary owner of backend architecture for e-commerce, logistics, and admin systems. Working with PHP (Slim API), Python (FastAPI/Django), and Node.js."
+  },
+  {
+    "role": "Process Designer / Front-End Developer",
+    "company": "Česká spořitelna, a.s.",
+    "period": "08/2022 — 09/2023",
+    "description": "Maintained internal banking applications, implementing new features and resolving critical bugs. Specialized in TypeScript/JavaScript and FreeMarker Template Language within Bitbucket and Openshift environments."
+  },
+  {
+    "role": "Fullstack Web Development",
+    "company": "Coding Bootcamp Prague (Data4You z.s.)",
+    "period": "05/2022 — 07/2022",
+    "description": "Completed an intensive full-stack development program. Focused on modern web technologies including JavaScript, React, PHP, and database design. Developed multiple end-to-end applications and refined coding best practices."
+  },
+  {
+    "role": "Logistics & EOC Specialist / Purchase Specialist",
+    "company": "Arval CZ - BNP Paribas Group",
+    "period": "09/2018 — 03/2022",
+    "description": "Managed procurement processes and logistics operations. Coordinated between department teams to streamline purchasing workflows and ensure operational efficiency."
+  },
+  {
+    "role": "Project Manager & Trainer",
+    "company": "NAR marketing s.r.o.",
+    "period": "03/2016 — 06/2018",
+    "description": "Led client support initiatives and project management. Focused on direct coaching, training programs, and delivering structured marketing solutions for diverse clients."
+  },
+  {
+    "role": "Galerist",
+    "company": "Gallery U mloka",
+    "period": "01/2013 — 06/2013",
+    "description": "Managed gallery operations and exhibition logistics. Coordinated artist relations and public interactions within a cultural environment."
+  }
+]

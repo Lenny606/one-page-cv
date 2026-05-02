@@ -1,0 +1,21 @@
+[
+  { "name": "PHP", "category": "Language" },
+  { "name": "Python", "category": "Language" },
+  { "name": "TypeScript", "category": "Language" },
+  { "name": "Laravel", "category": "Framework" },
+  { "name": "FastAPI", "category": "Framework" },
+  { "name": "Node.js", "category": "Runtime" },
+  { "name": "React", "category": "Frontend" },
+  { "name": "Next.js", "category": "Frontend" },
+  { "name": "Astro", "category": "Frontend" },
+  { "name": "TanStack Start", "category": "Frontend" },
+  { "name": "Langchain", "category": "AI/LLM" },
+  { "name": "TanStack AI", "category": "AI/LLM" },
+  { "name": "Docker", "category": "DevOps" },
+  { "name": "Terraform", "category": "IaC" },
+  { "name": "Helm", "category": "DevOps" },
+  { "name": "AWS", "category": "Cloud" },
+  { "name": "GitLab CI/CD", "category": "DevOps" },
+  { "name": "RabbitMQ", "category": "Messaging" },
+  { "name": "Redis", "category": "Caching" }
+]

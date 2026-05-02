@@ -1,0 +1,32 @@
+[
+  {
+    "id": "dbda-studio",
+    "title": "DBDA studio",
+    "image": "dbda-studio",
+    "shortDesc": "Website of a Prague-based architectural studio.",
+    "longDesc": "A professional platform for a Prague-based architectural studio. The site presents modern architectural designs that harmonize with landscape and history, requiring a structured yet elegant presentation of large-scale projects.",
+    "tech": [
+      "HTML",
+      "JavaScript",
+      "CSS"
+    ],
+    "challenge": "Maintaining high performance while displaying high-resolution architectural project galleries.",
+    "solution": "Developed a custom image optimization pipeline and a clean, project-focused navigation system.",
+    "link": "https://dbda.cz"
+  },
+  {
+    "id": "jenko-studio",
+    "title": "Jenko Studio",
+    "image": "jenko-studio",
+    "shortDesc": "Website presenting an artist's portfolio.",
+    "longDesc": "A minimalist digital portfolio for artist. Designed with a clean, immersive user interface that lets the art speak for itself.",
+    "tech": [
+      "HTML",
+      "JavaScript",
+      "CSS"
+    ],
+    "challenge": "Creating a layout that feels as fluid and abstract as the artwork it presents.",
+    "solution": "Implemented sophisticated GSAP animations and a flexible grid system to mirror the artist's style.",
+    "link": "https://jenkostudio.com"
+  }
+]
