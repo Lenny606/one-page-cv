@@ -33,16 +33,17 @@
     "id": "art-vault",
     "title": "Art Vault",
     "image": "art-vault",
-    "shortDesc": "A dashboard for managing and analyzing art collections.",
-    "longDesc": "App is a React CMS designed to organize and analyze art collections. It features image matching, progress tracking, and detailed analytics by category, medium, and year, all presented through a modern dashboard.",
+    "shortDesc": "Sleek dashboard for managing and analyzing art collections.",
+    "longDesc": "A one-off, specialized CMS designed to organize and analyze large art collections. Deployed on Vercel with a cloud-hosted database, it features automated image matching, progress tracking, and detailed analytics all presented through a premium dashboard.",
     "tech": [
       "React",
       "TypeScript",
       "MongoDB",
+      "Vercel",
       "Tailwind CSS"
     ],
     "challenge": "Centralizing the organization and management of data from fragmented sources into a single, cohesive platform with various export options.",
-    "solution": "Developed a focused React application prioritizing UX with drag-and-drop image matching and intuitive category organization. Leveraged MongoDB to handle non-uniform data structures with seamless cloud integration.",
+    "solution": "Developed a focused React application prioritizing UX with drag-and-drop image matching and intuitive category organization. Leveraged MongoDB for non-uniform data structures with seamless cloud database integration.",
     "link": "https://github.com/Lenny606/jenko-react"
   }
 ]
