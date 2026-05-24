@@ -26,3 +26,5 @@ temp/references/
 # testing
 playwright-report/
 test-results/
+
+.idea
