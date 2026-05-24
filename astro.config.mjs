@@ -9,8 +9,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: {
       watch: {
-        ignored: ['**/playwright-report/**', '**/test-results/**']
-      }
-    }
-  }
+        ignored: ['**/playwright-report/**', '**/test-results/**'],
+      },
+    },
+  },
 });

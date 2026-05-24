@@ -10,37 +10,37 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout title="Tomáš Kravčík - Backend Developer">
-	<Navbar />
-	<main class="max-w-5xl mx-auto px-6">
-		<Hero />
-		<ArchitecturalImpact />
-		<Timeline />
-		<TechStack />
-		<Contact />
-	</main>
-	<Footer />
+  <Navbar />
+  <main class="max-w-5xl mx-auto px-6">
+    <Hero />
+    <ArchitecturalImpact />
+    <Timeline />
+    <TechStack />
+    <Contact />
+  </main>
+  <Footer />
 
-	<script>
-		import { gsap } from 'gsap';
-		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-		gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-		// Minimal animations for the base skeleton
-		// These will be enhanced in the next phase
-		const sections = document.querySelectorAll('section, header');
-		
-		sections.forEach((section) => {
-			gsap.from(section, {
-				opacity: 0,
-				y: 20,
-				duration: 0.8,
-				scrollTrigger: {
-					trigger: section,
-					start: 'top 80%',
-					toggleActions: 'play none none none',
-				},
-			});
-		});
-	</script>
+    // Minimal animations for the base skeleton
+    // These will be enhanced in the next phase
+    const sections = document.querySelectorAll('section, header');
+
+    sections.forEach((section) => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+  </script>
 </BaseLayout>

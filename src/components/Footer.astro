@@ -2,21 +2,30 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="relative w-full overflow-hidden section-footer pt-40 pb-12 mt-20">
+<footer
+  class="relative w-full overflow-hidden section-footer pt-40 pb-12 mt-20"
+>
   <!-- Background Image with Parallax -->
-  <div 
-    class="absolute inset-0 z-0 bg-cover bg-center footer-bg" 
+  <div
+    class="absolute inset-0 z-0 bg-cover bg-center footer-bg"
     style="background-image: url('/images/footer-bg-light.png');"
   >
   </div>
-  
+
   <!-- Overlay Gradient for Smooth Blend from Page Content -->
-  <div class="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-slate-50 via-slate-50 to-transparent h-64"></div>
+  <div
+    class="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-slate-50 via-slate-50 to-transparent h-64"
+  >
+  </div>
   <div class="absolute inset-0 z-10 bg-white/40 backdrop-blur-[1px]"></div>
 
   <div class="relative z-20 max-w-5xl mx-auto px-6">
-    <div class="flex flex-col items-center gap-8 border-t border-slate-200/80 pt-12">
-      <div class="text-[11px] text-slate-500 font-semibold tracking-[0.3em] uppercase flex items-center gap-3">
+    <div
+      class="flex flex-col items-center gap-8 border-t border-slate-200/80 pt-12"
+    >
+      <div
+        class="text-[11px] text-slate-500 font-semibold tracking-[0.3em] uppercase flex items-center gap-3"
+      >
         <span>&copy; {currentYear}</span>
         <span class="w-1.5 h-1.5 bg-blue-500/20 rounded-full"></span>
         <span>Tomáš Kravčík</span>
@@ -54,8 +63,8 @@ const currentYear = new Date().getFullYear();
         trigger: footer,
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1.2
-      }
+        scrub: 1.2,
+      },
     });
 
     // Suble reveal for the copyright line
@@ -67,8 +76,8 @@ const currentYear = new Date().getFullYear();
       scrollTrigger: {
         trigger: footer,
         start: 'top 95%',
-        toggleActions: 'play none none none'
-      }
+        toggleActions: 'play none none none',
+      },
     });
   }
 </script>

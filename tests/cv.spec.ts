@@ -18,32 +18,37 @@ test.describe('One Page CV', () => {
 
   test('should not have console errors', async ({ page }) => {
     const errors: string[] = [];
-    page.on('console', msg => {
+    page.on('console', (msg) => {
       if (msg.type() === 'error') errors.push(msg.text());
     });
-    page.on('pageerror', err => errors.push(err.message));
-    
+    page.on('pageerror', (err) => errors.push(err.message));
+
     await page.reload();
     await page.waitForTimeout(1000); // Wait for animations
-    
-    const filteredErrors = errors.filter(e => 
-      !e.includes('vanguard') && 
-      !e.includes('Importing a module script failed')
+
+    const filteredErrors = errors.filter(
+      (e) =>
+        !e.includes('vanguard') &&
+        !e.includes('Importing a module script failed')
     );
-    
+
     expect(filteredErrors).toEqual([]);
   });
 
-  test('should verify no 404 image requests (vanguard check)', async ({ page }) => {
+  test('should verify no 404 image requests (vanguard check)', async ({
+    page,
+  }) => {
     const failedRequests: string[] = [];
-    page.on('requestfailed', request => {
+    page.on('requestfailed', (request) => {
       failedRequests.push(request.url());
     });
-    
+
     await page.reload();
     await page.waitForLoadState('networkidle');
-    
-    const vanguardErrors = failedRequests.filter(url => url.includes('vanguard'));
+
+    const vanguardErrors = failedRequests.filter((url) =>
+      url.includes('vanguard')
+    );
     if (vanguardErrors.length > 0) {
       console.log('Found persistent vanguard 404s:', vanguardErrors);
     }
@@ -52,21 +57,23 @@ test.describe('One Page CV', () => {
   test('should toggle work section and find new projects', async ({ page }) => {
     const toggleBtn = page.locator('#view-work-toggle');
     const workSection = page.locator('#expandable-work');
-    
+
     // Check initial state (allowing for small border/padding offsets)
-    const initialHeight = await workSection.evaluate(el => parseFloat(getComputedStyle(el).height));
+    const initialHeight = await workSection.evaluate((el) =>
+      parseFloat(getComputedStyle(el).height)
+    );
     expect(initialHeight).toBeLessThanOrEqual(1);
-    
+
     // Click toggle
     await toggleBtn.click();
-    
+
     // Wait for animation
     await page.waitForTimeout(1000);
-    
+
     // Section should be visible (height: auto, usually > 0)
-    const height = await workSection.evaluate(el => el.scrollHeight);
+    const height = await workSection.evaluate((el) => el.scrollHeight);
     expect(height).toBeGreaterThan(0);
-    
+
     // Check for Jenko Studio and DBDA Studio
     await expect(page.getByText('Jenko Studio')).toBeVisible();
     await expect(page.getByText('DBDA studio')).toBeVisible();

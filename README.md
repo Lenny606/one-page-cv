@@ -8,9 +8,9 @@ A premium, localized (EN) one-page CV built with Astro, Tailwind CSS v4, and GSA
 - **Tailwind CSS v4**: Modern, CSS-first utility styling.
 - **GSAP Animations**: High-performance, professional animations.
 - **Quality Control**:
-    - **Playwright**: Cross-browser E2E testing.
-    - **ESLint & Prettier**: Automated code standards and formatting.
-    - **Astro Check**: Component type and syntax validation.
+  - **Playwright**: Cross-browser E2E testing.
+  - **ESLint & Prettier**: Automated code standards and formatting.
+  - **Astro Check**: Component type and syntax validation.
 - **Agent Orchestration**: Integrated verification scripts (`checklist.py`, `verify_all.py`).
 - **GitHub Actions**: Automated deployment to GitHub Pages.
 
@@ -49,6 +49,7 @@ A premium, localized (EN) one-page CV built with Astro, Tailwind CSS v4, and GSA
 ## 📝 Automation & Verification
 
 The project includes advanced automation scripts located in `.agent/scripts/`:
+
 - **Core Checklist**: `npm test` runs critical security, quality, and UX checks.
 - **Full Verification**: `npm run verify` performing a comprehensive audit including Lighthouse and mobile tests.
 

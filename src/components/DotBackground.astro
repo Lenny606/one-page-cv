@@ -1,12 +1,15 @@
 ---
+
 ---
 
-<div id="dot-container" class="fixed inset-0 -z-10 bg-white pointer-events-none">
+<div
+  id="dot-container"
+  class="fixed inset-0 -z-10 bg-white pointer-events-none"
+>
   <canvas id="dot-canvas" class="w-full h-full"></canvas>
 </div>
 
 <script>
-
   interface Dot {
     x: number;
     y: number;
@@ -31,7 +34,7 @@
     constructor() {
       this.canvas = document.getElementById('dot-canvas') as HTMLCanvasElement;
       this.ctx = this.canvas.getContext('2d')!;
-      
+
       this.init();
       this.animate();
       this.addEventListeners();
@@ -61,7 +64,7 @@
             originalY: y,
             size: this.radius,
             color: '#000000',
-            opacity: 0.1
+            opacity: 0.1,
           });
         }
       }
@@ -88,8 +91,8 @@
 
         if (distance < this.hoverRadius) {
           const factor = 1 - distance / this.hoverRadius;
-          dot.size = this.radius + (4 * factor);
-          dot.opacity = 0.1 + (0.4 * factor);
+          dot.size = this.radius + 4 * factor;
+          dot.opacity = 0.1 + 0.4 * factor;
           dot.color = '#3b82f6'; // blue-500
         } else {
           dot.size = this.radius;
