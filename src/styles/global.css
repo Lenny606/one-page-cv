@@ -4,7 +4,12 @@ body {
   cursor: default;
 }
 
-main section {
+/*
+ * content-visibility: auto applies paint containment, which clips any overflow
+ * to the section box. The timeline section is excluded because its dots sit on
+ * the left edge and their active-state glow/scale intentionally bleed outward.
+ */
+main section:not(#timeline) {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
 }

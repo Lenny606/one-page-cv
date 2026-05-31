@@ -14,45 +14,24 @@ const hiddenExperiences = experiences.slice(3);
       </p>
     </div>
 
-    <div
-      class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent"
-    >
-      {/* Initial Experiences */}
-      {
-        initialExperiences.map((exp) => (
-          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-            <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <svg
-                class="fill-current"
-                viewBox="0 0 12 12"
-                width="12"
-                height="12"
-              >
-                <path d="M12 10v2H7V8.496a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V12H0V4.496a.5.5 0 0 1 .206-.4l5.507-3.923a.5.5 0 0 1 .587 0l5.507 3.923a.5.5 0 0 1 .206.4V10Z" />
-              </svg>
-            </div>
-            <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-              <div class="flex items-center justify-between space-x-2 mb-1">
-                <div class="font-bold text-slate-900">{exp.role}</div>
-                <time class="font-medium text-blue-600 text-sm">
-                  {exp.period}
-                </time>
-              </div>
-              <div class="text-slate-500 font-medium mb-2">{exp.company}</div>
-              <div class="text-slate-600 leading-relaxed text-sm">
-                {exp.description}
-              </div>
-            </div>
-          </div>
-        ))
-      }
+    <div id="timeline-wrap" class="relative">
+      {/* Static gray track */}
+      <div
+        class="timeline-track absolute left-[17px] top-2 bottom-2 w-0.5 rounded-full bg-slate-200"
+      >
+      </div>
+      {/* Colored progress line that fills on scroll */}
+      <div
+        class="timeline-progress absolute left-[17px] top-2 bottom-2 w-0.5 rounded-full bg-gradient-to-b from-blue-500 via-blue-500 to-indigo-500"
+      >
+      </div>
 
-      {/* Hidden Experiences Container */}
-      <div id="experience-more" class="h-0 overflow-hidden space-y-8 relative">
+      <div class="space-y-8">
+        {/* Initial Experiences */}
         {
-          hiddenExperiences.map((exp) => (
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active py-4">
-              <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+          initialExperiences.map((exp) => (
+            <div class="timeline-item relative pl-16">
+              <span class="timeline-dot absolute left-0 top-0 flex items-center justify-center w-9 h-9 rounded-full border-2 bg-white">
                 <svg
                   class="fill-current"
                   viewBox="0 0 12 12"
@@ -61,8 +40,8 @@ const hiddenExperiences = experiences.slice(3);
                 >
                   <path d="M12 10v2H7V8.496a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V12H0V4.496a.5.5 0 0 1 .206-.4l5.507-3.923a.5.5 0 0 1 .587 0l5.507 3.923a.5.5 0 0 1 .206.4V10Z" />
                 </svg>
-              </div>
-              <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              </span>
+              <div class="timeline-card p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                 <div class="flex items-center justify-between space-x-2 mb-1">
                   <div class="font-bold text-slate-900">{exp.role}</div>
                   <time class="font-medium text-blue-600 text-sm">
@@ -77,6 +56,45 @@ const hiddenExperiences = experiences.slice(3);
             </div>
           ))
         }
+
+        {/* Hidden Experiences Container */}
+        {/* -mx-2 px-2: keep layout identical while giving the overflow-hidden
+            clip box horizontal slack so active dots' glow isn't sliced. */}
+        <div
+          id="experience-more"
+          class="h-0 overflow-hidden -mx-2 px-2 space-y-8"
+        >
+          {
+            hiddenExperiences.map((exp) => (
+              <div class="timeline-item relative pl-16">
+                <span class="timeline-dot absolute left-0 top-0 flex items-center justify-center w-9 h-9 rounded-full border-2 bg-white">
+                  <svg
+                    class="fill-current"
+                    viewBox="0 0 12 12"
+                    width="12"
+                    height="12"
+                  >
+                    <path d="M12 10v2H7V8.496a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V12H0V4.496a.5.5 0 0 1 .206-.4l5.507-3.923a.5.5 0 0 1 .587 0l5.507 3.923a.5.5 0 0 1 .206.4V10Z" />
+                  </svg>
+                </span>
+                <div class="timeline-card p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                  <div class="flex items-center justify-between space-x-2 mb-1">
+                    <div class="font-bold text-slate-900">{exp.role}</div>
+                    <time class="font-medium text-blue-600 text-sm">
+                      {exp.period}
+                    </time>
+                  </div>
+                  <div class="text-slate-500 font-medium mb-2">
+                    {exp.company}
+                  </div>
+                  <div class="text-slate-600 leading-relaxed text-sm">
+                    {exp.description}
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
 
@@ -104,10 +122,91 @@ const hiddenExperiences = experiences.slice(3);
   </div>
 </section>
 
+<style>
+  /* Dot: muted by default, colored once the scroll progress reaches it */
+  .timeline-dot {
+    border-color: var(--color-slate-200, #e2e8f0);
+    color: var(--color-slate-300, #cbd5e1);
+    transition:
+      color 0.4s ease,
+      background-color 0.4s ease,
+      border-color 0.4s ease,
+      box-shadow 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .timeline-item.is-active .timeline-dot {
+    border-color: var(--color-blue-500, #3b82f6);
+    background-color: var(--color-blue-500, #3b82f6);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgb(59 130 246 / 0.15);
+  }
+
+  /* Progress line starts empty; GSAP scrubs scaleY from 0 -> 1 on scroll */
+  .timeline-progress {
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-dot {
+      transition: none;
+    }
+    .timeline-progress {
+      transform: scaleY(1);
+    }
+  }
+</style>
+
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  const initTimelineReveal = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initTimeline = () => {
+    const wrap = document.getElementById('timeline-wrap');
+    const progress = wrap?.querySelector<HTMLElement>('.timeline-progress');
+    const items = gsap.utils.toArray<HTMLElement>('.timeline-item');
+
+    if (!wrap || !progress || items.length === 0) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      // Show everything in its final, colored state without scroll effects.
+      gsap.set(progress, { scaleY: 1 });
+      items.forEach((item) => item.classList.add('is-active'));
+      return;
+    }
+
+    // Fill the colored line as the section scrolls through the viewport.
+    gsap.to(progress, {
+      scaleY: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: wrap,
+        start: 'top center',
+        end: 'bottom center',
+        scrub: 0.5,
+      },
+    });
+
+    // Light up each dot when the colored fill reaches it.
+    items.forEach((item) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: 'top center',
+        onEnter: () => item.classList.add('is-active'),
+        onLeaveBack: () => item.classList.remove('is-active'),
+      });
+    });
+  };
+
+  const initToggle = () => {
     const toggleBtn = document.getElementById('toggle-experience');
     const content = document.getElementById('experience-more');
     const btnText = document.getElementById('btn-text');
@@ -120,32 +219,22 @@ const hiddenExperiences = experiences.slice(3);
     toggleBtn.addEventListener('click', () => {
       isOpen = !isOpen;
 
-      if (isOpen) {
-        // Open
-        gsap.to(content, {
-          height: 'auto',
-          duration: 0.8,
-          ease: 'expo.out',
-          opacity: 1,
-        });
+      gsap.to(content, {
+        height: isOpen ? 'auto' : 0,
+        opacity: isOpen ? 1 : 0,
+        duration: isOpen ? 0.8 : 0.6,
+        ease: isOpen ? 'expo.out' : 'expo.inOut',
+        // Recalculate ScrollTrigger positions once the layout settles so the
+        // newly revealed (or hidden) items drive the progress line correctly.
+        onComplete: () => ScrollTrigger.refresh(),
+      });
 
-        btnText.textContent = 'Show Less';
-        btnIcon.style.transform = 'rotate(180deg)';
-      } else {
-        // Close
-        gsap.to(content, {
-          height: 0,
-          duration: 0.6,
-          ease: 'expo.inOut',
-          opacity: 0,
-        });
-
-        btnText.textContent = 'Show More Working Experience';
-        btnIcon.style.transform = 'rotate(0deg)';
-      }
+      btnText.textContent = isOpen
+        ? 'Show Less'
+        : 'Show More Working Experience';
+      btnIcon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
     });
 
-    // Handle hover effect with GSAP
     toggleBtn.addEventListener('mouseenter', () => {
       gsap.to(toggleBtn, { scale: 1.02, duration: 0.3, ease: 'power2.out' });
     });
@@ -154,7 +243,11 @@ const hiddenExperiences = experiences.slice(3);
     });
   };
 
-  // Run on page load and view transitions
-  document.addEventListener('DOMContentLoaded', initTimelineReveal);
-  document.addEventListener('astro:page-load', initTimelineReveal);
+  const init = () => {
+    initTimeline();
+    initToggle();
+  };
+
+  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('astro:page-load', init);
 </script>

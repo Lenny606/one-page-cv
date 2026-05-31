@@ -24,7 +24,7 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+              class="nav-link relative text-sm font-medium text-slate-600 transition-colors duration-200 hover:text-blue-600"
             >
               {item.name}
             </a>
@@ -132,6 +132,33 @@ const navItems = [
     </div>
   </div>
 </aside>
+
+<style>
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link::after {
+      transition: none;
+    }
+  }
+</style>
 
 <script>
   import { gsap } from 'gsap';
