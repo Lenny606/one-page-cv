@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Timeline from '../components/Timeline.astro';
 import TechStack from '../components/TechStack.astro';
+import About from '../components/About.astro';
 import ArchitecturalImpact from '../components/ArchitecturalImpact.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
@@ -13,6 +14,7 @@ import Footer from '../components/Footer.astro';
   <Navbar />
   <main class="max-w-5xl mx-auto px-6">
     <Hero />
+    <About />
     <ArchitecturalImpact />
     <Timeline />
     <TechStack />
@@ -26,21 +28,21 @@ import Footer from '../components/Footer.astro';
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Minimal animations for the base skeleton
-    // These will be enhanced in the next phase
-    const sections = document.querySelectorAll('section, header');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const sections = document.querySelectorAll('section, header');
 
-    sections.forEach((section) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
+      sections.forEach((section) => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        });
       });
-    });
+    }
   </script>
 </BaseLayout>
